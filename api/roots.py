@@ -1,6 +1,6 @@
-import json
-import random
-from http.server import BaseHTTPRequestHandler
+import json 
+import random 
+from http.server import BaseHTTPRequestHandler 
 from os.path import dirname, abspath, join
 
 dir = dirname(abspath(__file__))
@@ -17,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
             response = {
                 'line': random_line.strip()
             }
-            response_json = json.dumps(response)
+            response_json = json.dumps(response, ensure_ascii=False)
 
-            self.wfile.write(response_json.encode())
+            self.wfile.write(response_json.encode('utf-8'))
         return
